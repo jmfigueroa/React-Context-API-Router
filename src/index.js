@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
-import { RoutingProvider } from './Main'
+import { RoutingProvider } from './RouterComponents'
 
 ReactDOM.render(
   <RoutingProvider>
