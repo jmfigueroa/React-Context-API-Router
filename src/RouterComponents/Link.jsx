@@ -1,13 +1,14 @@
 import React from 'react'
 import { RoutingConsumer } from './'
-function buttonHtml(props) {
-  return <button {...props} />
-}
+//
+// const HtmlLink = props => <a {...props} />
+
 export const Link = ({ path, component, ...props }) => {
-  const Bnt = component || buttonHtml
   return (
     <RoutingConsumer>
-      {({ action }) => <Bnt {...props} onClick={() => action.go(path)} />}
+      {({ action }) => <a {...props} onClick={() => action.go(path)}>
+      {/* empty content to avoid es-lint error */}
+      </a>}
     </RoutingConsumer>
   )
 }
