@@ -3,16 +3,14 @@ import pathToRegexp from 'path-to-regexp'
 
 import { RoutingConsumer } from './'
 
-export class Route extends React.Component {
-  render() {
-    return (
-      <RoutingConsumer>
-        {({ state }) => {
-          const re = pathToRegexp(this.props.path)
-          const RenderedComponent = this.props.component
-          if (re.test(state.url)) return <RenderedComponent />
-        }}
-      </RoutingConsumer>
-    )
-  }
-}
+export const Route = props => (
+  <RoutingConsumer>
+    {({ state }) => {
+        console.log(props.change)
+      const regexTestForComponent = pathToRegexp(props.path)
+      const RenderedComponent = props.component
+      if (regexTestForComponent.test(state.url))
+        return <RenderedComponent {...props} />
+    }}
+  </RoutingConsumer>
+)
