@@ -8,7 +8,7 @@ import url from 'rollup-plugin-url'
 import pkg from './package.json'
 
 export default {
-  input: 'src/Main.js',
+  input: 'src/index.js',
   output: [
     {
       file: pkg.main,
@@ -29,6 +29,15 @@ export default {
       exclude: 'node_modules/**'
     }),
     resolve(),
-    commonjs()
+    commonjs({
+      namedExports:{
+        './src/CustomRoute.js': ['CustomRoute'],
+        './src/Link.js': ['Link'],
+        './src/Main.js': ['RoutingProvider', 'RoutingConsumer'],
+        './src/ProtectedRoute.js': ['ProtectedRoute'],
+        './src/Redirect.js': ['Redirect'],
+        './src/Route.js': ['Route']
+      }
+    })
   ]
 }
