@@ -1,6 +1,9 @@
 //export both Routing Provider and Routing Consumer
 import React from 'react'
-import history from 'browser-history'
+// import history from 'history'
+import { createBrowserHistory } from 'history'
+const history = createBrowserHistory()
+
 // Create Context
 const Context = React.createContext()
 const { Provider } = Context
@@ -10,11 +13,11 @@ export class RoutingProvider extends React.Component {
   state = { url: window.location.pathname }
 
   action = {
-    go: url => this.setState(state => ({ ...state, url }), () => history(url))
+    go: url => this.setState(state => ({ ...state, url }), () => history.push(url))
   }
   //
   componentDidMount() {
-    history((e, url) => this.setState(state => ({ ...state, url })))
+    history.listen((e, url) => this.setState(state => ({ ...state, url })))
   }
   //
   render() {
