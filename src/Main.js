@@ -10,11 +10,11 @@ const { Provider } = Context
 // Export Provider
 export class RoutingProvider extends React.Component {
   //get current location
-  state = { url: history.location.pathname, contents: {} }
+  state = { url: history.location.pathname }
 
   action = {
     go: url =>
-      this.setState(state => ({ ...state.url, url }), () => history.push(url))
+      this.setState(state => ({ ...state, url }), () => history.push(url))
   }
   //
   render() {
