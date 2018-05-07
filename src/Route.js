@@ -1,8 +1,8 @@
 import React from 'react'
 import pathToRegexp from 'path-to-regexp'
-
+//
 import { RoutingConsumer } from './'
-
+//
 export const Route = props => (
   <RoutingConsumer>
     {({ state }) => {
