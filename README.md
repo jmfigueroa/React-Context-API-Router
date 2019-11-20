@@ -1,8 +1,8 @@
-# React Context Router
+# React Context Router (Deprecated)
 
 Simple Implementation of a Context-API-compatible router
 
-🚧EXPERIMENTAL: This Router is currently under development! Help is appreciated 🚧
+🚧DEPRECATED🚧 This was just for testing purposes. Do not use.
 
 ## Components:
 
